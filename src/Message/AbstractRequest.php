@@ -362,7 +362,7 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
      */
     public function getDataShipping(array $data = [])
     {
-        if ($card = $this->getCard()) {
+        if ($card = $this->getCard() && !empty($this->getCard()->getShippingAddress1())) {
             if ($card->getShippingFirstName()) {
                 $data['shipping_firstname'] = $card->getShippingFirstName();
             }
